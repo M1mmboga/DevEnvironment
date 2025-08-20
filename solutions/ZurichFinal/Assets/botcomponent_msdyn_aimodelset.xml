@@ -1,0 +1,5 @@
+<botcomponent_msdyn_aimodelset>
+  <botcomponent_msdyn_aimodel botcomponentid.schemaname="cr290_zuriAgent3.topic.Draftnewpublicpolicypapers" msdyn_aimodelid.msdyn_aimodelid="22db8ad0-68a7-453b-84f5-ab0de04a8bb8">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_msdyn_aimodel>
+</botcomponent_msdyn_aimodelset>
