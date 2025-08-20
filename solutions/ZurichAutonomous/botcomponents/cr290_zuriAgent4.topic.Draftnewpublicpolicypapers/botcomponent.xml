@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr290_zuriAgent4.topic.Draftnewpublicpolicypapers">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Draft new public policy papers</name>
+  <parentbotid>
+    <schemaname>cr290_zuriAgent4</schemaname>
+  </parentbotid>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</botcomponent>

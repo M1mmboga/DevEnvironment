@@ -1,0 +1,12 @@
+<botcomponent schemaname="cr290_zuriAgent4.ExternalTriggerComponent.WhenanewemailarrivesV3.9e0666ef-2471-42b7-88ca-21a67c0733b">
+  <componenttype>17</componenttype>
+  <description>Trigger your agent with certain message upon event: When a new email arrives (V3).</description>
+  <iconurl>https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1757/1.0.1757.4253/office365/icon.png</iconurl>
+  <iscustomizable>0</iscustomizable>
+  <name>When a new email arrives (V3)</name>
+  <parentbotid>
+    <schemaname>cr290_zuriAgent4</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

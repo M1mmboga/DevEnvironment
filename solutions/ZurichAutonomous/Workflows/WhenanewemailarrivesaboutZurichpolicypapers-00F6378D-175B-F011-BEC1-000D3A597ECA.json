@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_microsoftcopilotstudio": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "zigdev_sharedmicrosoftcopilotstudio_504a2"
+        },
+        "api": {
+          "name": "shared_microsoftcopilotstudio"
+        }
+      },
+      "shared_office365-1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedoffice365_ea6c1"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_new_email_arrives_(V3)": {
+          "metadata": {
+            "Id::AQMkADljMTNlNDE4LTAyMGYtNDZjNC05NTRmLTZhNjkzMTY1YjkxNgAuAAADmKWsTNWgQ0K3LOz5BdEtEgEAPUwW8bANeU_fbnGnU_eWCwAAAgEMAAAA": "Inbox",
+            "operationMetadataId": "680a3519-26ef-4fbd-8553-514e9d1c4d72"
+          },
+          "type": "OpenApiConnectionNotification",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365-1",
+              "operationId": "OnNewEmailV3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "folderPath": "Id::AQMkADljMTNlNDE4LTAyMGYtNDZjNC05NTRmLTZhNjkzMTY1YjkxNgAuAAADmKWsTNWgQ0K3LOz5BdEtEgEAPUwW8bANeU_fbnGnU_eWCwAAAgEMAAAA",
+              "to": "admin@M365CPI22829036.onmicrosoft.com"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Sends_a_prompt_to_the_specified_copilot_for_processing": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "13d6183e-b051-445b-99f1-855af5b2eaea"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_microsoftcopilotstudio",
+              "operationId": "ExecuteCopilot",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio"
+            },
+            "parameters": {
+              "Copilot": "cr290_zuriAgent4",
+              "body/message": "Use content from @{triggerBody()}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

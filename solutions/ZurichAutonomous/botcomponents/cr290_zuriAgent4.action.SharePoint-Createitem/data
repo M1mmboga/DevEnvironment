@@ -1,0 +1,716 @@
+kind: TaskDialog
+inputs:
+  - kind: ManualTaskInput
+    propertyName: dataset
+    value: https://m365cpi22829036.sharepoint.com/sites/ZIGCommunications
+
+  - kind: ManualTaskInput
+    propertyName: table
+    value: ac10734a-0033-4311-a094-44afbf12e3a5
+
+  - kind: AutomaticTaskInput
+    propertyName: item.GPTResponse
+    name: GPTResponse
+    description: The AI response to the email questions.
+
+  - kind: AutomaticTaskInput
+    propertyName: item.Title
+    name: Title
+
+  - kind: AutomaticTaskInput
+    propertyName: item.Sender
+    name: Sender
+    description: Email address of the sender.
+
+  - kind: AutomaticTaskInput
+    propertyName: item.Question
+    name: Question
+    description: This is the message in the email body from the sender.
+
+modelDisplayName: Create item
+modelDescription: This operation creates a new item in the ZIGEmailQuestions list that contains the title message, senders email, email body message and GPTResponse with the Zurich Public Position statement.
+outputs:
+  - propertyName: "{ContentType}"
+    name: Content type
+    description: Name of the Content type of the item.
+
+  - propertyName: "{FilenameWithExtension}"
+    name: File name with extension
+    description: For libraries, returns file name including extension. For lists, returns the title property.
+
+  - propertyName: "{FullPath}"
+    name: Full Path
+    description: Full path of an item or a folder or a file
+
+  - propertyName: "{HasAttachments}"
+    name: Has attachments
+    description: Indicates the presence of attachments in the item.
+
+  - propertyName: "{Identifier}"
+    name: Identifier
+    description: Value that can be used in file related actions for selecting a file.
+
+  - propertyName: "{IsFolder}"
+    name: IsFolder
+    description: True when the item is a folder, false otherwise.
+
+  - propertyName: "{Link}"
+    name: Link to item
+    description: Link that can be used to get to the file or list item. Only people with permissions to the item will be able to open the link.
+
+  - propertyName: "{ModerationComment}"
+    name: Comments associated with the content approval of this list item
+    description: The comments associated with moderation of the list item.
+
+  - propertyName: "{ModerationStatus}"
+    name: Content approval status
+    description: "The content approval status. It can be one of the following: Draft, Pending, Approved, or Rejected"
+
+  - propertyName: "{Name}"
+    name: Name
+    description: File name of the item in document libraries, display name of the item in lists.
+
+  - propertyName: "{Path}"
+    name: Folder path
+    description: Path to the folder the item is in, relative to the site address.
+
+  - propertyName: "{Thumbnail}"
+    name: Thumbnail
+    description: URL to the thumbnails of the item in 3 different sizes, if available.
+
+  - propertyName: "{TriggerWindowEndToken}"
+    name: Trigger Window End Token
+    description: A token expressing the time of the current flow check. Use this if you want to check if one or more columns were modified since the last flow check.
+
+  - propertyName: "{TriggerWindowStartToken}"
+    name: Trigger Window Start Token
+    description: A token expressing the time of the last flow check. Use this if you want to check if one or more columns were modified since the last flow check.
+
+  - propertyName: "{VersionNumber}"
+    name: Version number
+    description: The version number of the file or the list item.
+
+  - propertyName: Author
+    name: Created By
+    description: The user who created this item.
+
+  - propertyName: ComplianceAssetId
+    name: Compliance Asset Id
+
+  - propertyName: Created
+    name: Created
+    description: When this item was created.
+
+  - propertyName: Editor
+    name: Modified By
+    description: The user who last changed this item.
+
+  - propertyName: GPTResponse
+    name: GPTResponse
+    description: The AI response to the email questions.
+
+  - propertyName: ID
+    name: ID
+    description: List item id. Use this value for specifying the item to act on in other list related actions.
+
+  - propertyName: Modified
+    name: Modified
+    description: When this item was last changed.
+
+  - propertyName: OData__ColorTag
+    name: Color Tag
+
+  - propertyName: Question
+    name: Question
+    description: This is the message in the email body from the sender.
+
+  - propertyName: Sender
+    name: Sender
+    description: Email address of the sender.
+
+  - propertyName: Title
+    name: Title
+
+action:
+  kind: InvokeConnectorTaskAction
+  connectionReference: cr290_zuriAgent4.shared_sharepointonline.shared-sharepointonl-ebe3ea49-ebe7-40f1-a9e8-f943fed50e07
+  connectionProperties:
+    mode: Invoker
+
+  operationId: PostItem
+  dynamicInputSchema:
+    properties:
+      dataset:
+        displayName: Site Address
+        description: "Example: https://contoso.sharepoint.com/sites/sitename"
+        isRequired: true
+        order: 0
+        dynamicValuesConfig:
+          capability: List
+
+        type: String
+
+      item:
+        displayName: Item
+        description: Item to create
+        isRequired: true
+        order: 2
+        type:
+          kind: Record
+          properties:
+            {ContentType}:
+              displayName: Content type
+              description: Name of the Content type of the item.
+              order: 21
+              type:
+                kind: Record
+                properties:
+                  Id:
+                    displayName: Id
+                    order: 0
+                    dynamicValuesConfig:
+                      capability: List
+
+                    type: String
+
+                  Name:
+                    displayName: Name
+                    order: 1
+                    type: String
+
+            {FilenameWithExtension}:
+              displayName: File name with extension
+              description: For libraries, returns file name including extension. For lists, returns the title property.
+              order: 16
+              type: String
+
+            {FullPath}:
+              displayName: Full Path
+              description: Full path of an item or a folder or a file
+              order: 18
+              type: String
+
+            {HasAttachments}:
+              displayName: Has attachments
+              description: Indicates the presence of attachments in the item.
+              order: 22
+              type: Boolean
+
+            {Identifier}:
+              displayName: Identifier
+              description: Value that can be used in file related actions for selecting a file.
+              order: 11
+              type: String
+
+            {IsFolder}:
+              displayName: IsFolder
+              description: True when the item is a folder, false otherwise.
+              order: 12
+              type: Boolean
+
+            {Link}:
+              displayName: Link to item
+              description: Link that can be used to get to the file or list item. Only people with permissions to the item will be able to open the link.
+              order: 14
+              type: String
+
+            {ModerationComment}:
+              displayName: Comments associated with the content approval of this list item
+              description: The comments associated with moderation of the list item.
+              order: 20
+              type: String
+
+            {ModerationStatus}:
+              displayName: Content approval status
+              description: "The content approval status. It can be one of the following: Draft, Pending, Approved, or Rejected"
+              order: 19
+              type: String
+
+            {Name}:
+              displayName: Name
+              description: File name of the item in document libraries, display name of the item in lists.
+              order: 15
+              type: String
+
+            {Path}:
+              displayName: Folder path
+              description: Path to the folder the item is in, relative to the site address.
+              order: 17
+              type: String
+
+            {Thumbnail}:
+              displayName: Thumbnail
+              description: URL to the thumbnails of the item in 3 different sizes, if available.
+              order: 13
+              type:
+                kind: Record
+                properties:
+                  Large:
+                    displayName: Large
+                    description: URL to the largest size thumbnail of the item, if available.
+                    order: 2
+                    type: String
+
+                  Medium:
+                    displayName: Medium
+                    description: URL to the standard size thumbnail of the item, if available.
+                    order: 1
+                    type: String
+
+                  Small:
+                    displayName: Small
+                    description: URL to the small, highly compressed size thumbnail of the item, if available.
+                    order: 0
+                    type: String
+
+            {TriggerWindowEndToken}:
+              displayName: Trigger Window End Token
+              description: A token expressing the time of the current flow check. Use this if you want to check if one or more columns were modified since the last flow check.
+              order: 25
+              type: String
+
+            {TriggerWindowStartToken}:
+              displayName: Trigger Window Start Token
+              description: A token expressing the time of the last flow check. Use this if you want to check if one or more columns were modified since the last flow check.
+              order: 24
+              type: String
+
+            {VersionNumber}:
+              displayName: Version number
+              description: The version number of the file or the list item.
+              order: 23
+              type: String
+
+            Author:
+              displayName: Created By
+              description: The user who created this item.
+              order: 9
+              type:
+                kind: Record
+                properties:
+                  Claims:
+                    displayName: Claims
+                    description: Internal identifier for the user who created this item.
+                    order: 0
+                    dynamicValuesConfig:
+                      capability: List
+
+                    type: String
+
+                  Department:
+                    displayName: Department
+                    description: Department name of the user who created this item.
+                    order: 4
+                    type: String
+
+                  DisplayName:
+                    displayName: DisplayName
+                    description: The name of the user who created this item.
+                    order: 1
+                    type: String
+
+                  Email:
+                    displayName: Email
+                    description: Email address of the user who created this item.
+                    order: 2
+                    type: String
+
+                  JobTitle:
+                    displayName: JobTitle
+                    description: Job title of the user who created this item.
+                    order: 5
+                    type: String
+
+                  Picture:
+                    displayName: Picture
+                    description: Link to a picture of the user who created this item.
+                    order: 3
+                    type: String
+
+            ComplianceAssetId:
+              displayName: Compliance Asset Id
+              order: 7
+              type: String
+
+            Created:
+              displayName: Created
+              description: When this item was created.
+              order: 5
+              type: DateTime
+
+            Editor:
+              displayName: Modified By
+              description: The user who last changed this item.
+              order: 10
+              type:
+                kind: Record
+                properties:
+                  Claims:
+                    displayName: Claims
+                    description: Internal identifier for the user who last changed this item.
+                    order: 0
+                    dynamicValuesConfig:
+                      capability: List
+
+                    type: String
+
+                  Department:
+                    displayName: Department
+                    description: Department name of the user who last changed this item.
+                    order: 4
+                    type: String
+
+                  DisplayName:
+                    displayName: DisplayName
+                    description: The name of the user who last changed this item.
+                    order: 1
+                    type: String
+
+                  Email:
+                    displayName: Email
+                    description: Email address of the user who last changed this item.
+                    order: 2
+                    type: String
+
+                  JobTitle:
+                    displayName: JobTitle
+                    description: Job title of the user who last changed this item.
+                    order: 5
+                    type: String
+
+                  Picture:
+                    displayName: Picture
+                    description: Link to a picture of the user who last changed this item.
+                    order: 3
+                    type: String
+
+            GPTResponse:
+              displayName: GPTResponse
+              description: The AI response to the email questions.
+              order: 4
+              type: String
+
+            ID:
+              displayName: ID
+              description: List item id. Use this value for specifying the item to act on in other list related actions.
+              order: 0
+              type: Number
+
+            Modified:
+              displayName: Modified
+              description: When this item was last changed.
+              order: 8
+              type: DateTime
+
+            OData__ColorTag:
+              displayName: Color Tag
+              order: 6
+              type: String
+
+            Question:
+              displayName: Question
+              description: This is the message in the email body from the sender.
+              order: 3
+              type: String
+
+            Sender:
+              displayName: Sender
+              description: Email address of the sender.
+              order: 2
+              type: String
+
+            Title:
+              displayName: Title
+              order: 1
+              type: String
+
+      table:
+        displayName: List Name
+        description: SharePoint list name
+        isRequired: true
+        order: 1
+        dynamicValuesConfig:
+          capability: List
+
+        type: String
+
+      view:
+        displayName: Limit Columns by View
+        description: Avoid column threshold issues by only using columns defined in a view
+        visibility: Advanced
+        order: 3
+        dynamicValuesConfig:
+          capability: List
+
+        type: String
+
+  dynamicOutputSchema:
+    kind: Record
+    properties:
+      {ContentType}:
+        displayName: Content type
+        description: Name of the Content type of the item.
+        order: 21
+        type:
+          kind: Record
+          properties:
+            Id:
+              displayName: Id
+              order: 0
+              dynamicValuesConfig:
+                capability: List
+
+              type: String
+
+            Name:
+              displayName: Name
+              order: 1
+              type: String
+
+      {FilenameWithExtension}:
+        displayName: File name with extension
+        description: For libraries, returns file name including extension. For lists, returns the title property.
+        order: 16
+        type: String
+
+      {FullPath}:
+        displayName: Full Path
+        description: Full path of an item or a folder or a file
+        order: 18
+        type: String
+
+      {HasAttachments}:
+        displayName: Has attachments
+        description: Indicates the presence of attachments in the item.
+        order: 22
+        type: Boolean
+
+      {Identifier}:
+        displayName: Identifier
+        description: Value that can be used in file related actions for selecting a file.
+        order: 11
+        type: String
+
+      {IsFolder}:
+        displayName: IsFolder
+        description: True when the item is a folder, false otherwise.
+        order: 12
+        type: Boolean
+
+      {Link}:
+        displayName: Link to item
+        description: Link that can be used to get to the file or list item. Only people with permissions to the item will be able to open the link.
+        order: 14
+        type: String
+
+      {ModerationComment}:
+        displayName: Comments associated with the content approval of this list item
+        description: The comments associated with moderation of the list item.
+        order: 20
+        type: String
+
+      {ModerationStatus}:
+        displayName: Content approval status
+        description: "The content approval status. It can be one of the following: Draft, Pending, Approved, or Rejected"
+        order: 19
+        type: String
+
+      {Name}:
+        displayName: Name
+        description: File name of the item in document libraries, display name of the item in lists.
+        order: 15
+        type: String
+
+      {Path}:
+        displayName: Folder path
+        description: Path to the folder the item is in, relative to the site address.
+        order: 17
+        type: String
+
+      {Thumbnail}:
+        displayName: Thumbnail
+        description: URL to the thumbnails of the item in 3 different sizes, if available.
+        order: 13
+        type:
+          kind: Record
+          properties:
+            Large:
+              displayName: Large
+              description: URL to the largest size thumbnail of the item, if available.
+              order: 2
+              type: String
+
+            Medium:
+              displayName: Medium
+              description: URL to the standard size thumbnail of the item, if available.
+              order: 1
+              type: String
+
+            Small:
+              displayName: Small
+              description: URL to the small, highly compressed size thumbnail of the item, if available.
+              order: 0
+              type: String
+
+      {TriggerWindowEndToken}:
+        displayName: Trigger Window End Token
+        description: A token expressing the time of the current flow check. Use this if you want to check if one or more columns were modified since the last flow check.
+        order: 25
+        type: String
+
+      {TriggerWindowStartToken}:
+        displayName: Trigger Window Start Token
+        description: A token expressing the time of the last flow check. Use this if you want to check if one or more columns were modified since the last flow check.
+        order: 24
+        type: String
+
+      {VersionNumber}:
+        displayName: Version number
+        description: The version number of the file or the list item.
+        order: 23
+        type: String
+
+      Author:
+        displayName: Created By
+        description: The user who created this item.
+        order: 9
+        type:
+          kind: Record
+          properties:
+            Claims:
+              displayName: Claims
+              description: Internal identifier for the user who created this item.
+              order: 0
+              dynamicValuesConfig:
+                capability: List
+
+              type: String
+
+            Department:
+              displayName: Department
+              description: Department name of the user who created this item.
+              order: 4
+              type: String
+
+            DisplayName:
+              displayName: DisplayName
+              description: The name of the user who created this item.
+              order: 1
+              type: String
+
+            Email:
+              displayName: Email
+              description: Email address of the user who created this item.
+              order: 2
+              type: String
+
+            JobTitle:
+              displayName: JobTitle
+              description: Job title of the user who created this item.
+              order: 5
+              type: String
+
+            Picture:
+              displayName: Picture
+              description: Link to a picture of the user who created this item.
+              order: 3
+              type: String
+
+      ComplianceAssetId:
+        displayName: Compliance Asset Id
+        order: 7
+        type: String
+
+      Created:
+        displayName: Created
+        description: When this item was created.
+        order: 5
+        type: DateTime
+
+      Editor:
+        displayName: Modified By
+        description: The user who last changed this item.
+        order: 10
+        type:
+          kind: Record
+          properties:
+            Claims:
+              displayName: Claims
+              description: Internal identifier for the user who last changed this item.
+              order: 0
+              dynamicValuesConfig:
+                capability: List
+
+              type: String
+
+            Department:
+              displayName: Department
+              description: Department name of the user who last changed this item.
+              order: 4
+              type: String
+
+            DisplayName:
+              displayName: DisplayName
+              description: The name of the user who last changed this item.
+              order: 1
+              type: String
+
+            Email:
+              displayName: Email
+              description: Email address of the user who last changed this item.
+              order: 2
+              type: String
+
+            JobTitle:
+              displayName: JobTitle
+              description: Job title of the user who last changed this item.
+              order: 5
+              type: String
+
+            Picture:
+              displayName: Picture
+              description: Link to a picture of the user who last changed this item.
+              order: 3
+              type: String
+
+      GPTResponse:
+        displayName: GPTResponse
+        description: The AI response to the email questions.
+        order: 4
+        type: String
+
+      ID:
+        displayName: ID
+        description: List item id. Use this value for specifying the item to act on in other list related actions.
+        order: 0
+        type: Number
+
+      Modified:
+        displayName: Modified
+        description: When this item was last changed.
+        order: 8
+        type: DateTime
+
+      OData__ColorTag:
+        displayName: Color Tag
+        order: 6
+        type: String
+
+      Question:
+        displayName: Question
+        description: This is the message in the email body from the sender.
+        order: 3
+        type: String
+
+      Sender:
+        displayName: Sender
+        description: Email address of the sender.
+        order: 2
+        type: String
+
+      Title:
+        displayName: Title
+        order: 1
+        type: String
+
+outputMode: All

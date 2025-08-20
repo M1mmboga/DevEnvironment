@@ -1,0 +1,11 @@
+<botcomponent_workflowset>
+  <botcomponent_workflow botcomponentid.schemaname="cr290_zuriAgent4.ExternalTriggerComponent.WhenanewemailarrivesV3.9e0666ef-2471-42b7-88ca-21a67c0733b" workflowid.workflowid="00f6378d-175b-f011-bec1-000d3a597eca">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+  <botcomponent_workflow botcomponentid.schemaname="cr290_zuriAgent4.topic.Draftnewpublicpolicypapers" workflowid.workflowid="dd08ae7a-075b-f011-bec1-000d3a597eca">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+  <botcomponent_workflow botcomponentid.schemaname="cr290_zuriAgent4.topic.GenerateUKCustomerResponse" workflowid.workflowid="f60fd286-e613-e13c-33de-7634ed922c3b">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+</botcomponent_workflowset>
