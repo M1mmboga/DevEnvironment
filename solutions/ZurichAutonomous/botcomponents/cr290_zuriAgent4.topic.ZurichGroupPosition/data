@@ -1,0 +1,61 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Zurich Group Position
+    triggerQueries:
+      - group position
+      - Zurich position
+      - Explain Zurich group position on climate adaptions
+      - Group-Position-on
+      - Group Communications and Public Affairs
+      - What is the policy paper?
+      - Zurich's public policy positions
+      - Zurich's efforts
+      - zurch position in greenwashing
+      - impact investment
+      - naturebiobiodiversity
+      - zurich climate position
+      - zurich climate efforts
+      - climate protection gap
+      - climate adaptation
+
+  actions:
+    - kind: SearchAndSummarizeContent
+      id: NvHi9j
+      variable: Topic.varPositionSummary
+      userInput: =System.Activity.Text
+      moderationLevel: Medium
+      additionalInstructions: Provide a short summary for each response and ask the user if they need more context. Avoid long summaries and avoid long paragraphs. Keep your responses limited to 300 characters only.
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: DoNotSearchFiles
+
+      knowledgeSources:
+        kind: SearchSpecificKnowledgeSources
+        knowledgeSources:
+          - cr290_zuriAgent4.knowledge.SharePointSearchSource.0
+
+      applyModelKnowledgeSetting: false
+
+    - kind: Question
+      id: question_aDAZIe
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.varUserResponse
+      prompt: Do you have more questions?
+      entity: StringPrebuiltEntity
+
+    - kind: SearchAndSummarizeContent
+      id: qaiXBQ
+      userInput: =Topic.varPositionSummary
+      applyModelKnowledgeSetting: false
+
+    - kind: SendActivity
+      id: sendActivity_JBpImF
+      activity: In case you have any other questions, please type them below. Otherwise, type 'bye' or 'goodbye' or 'thank you' to end this conversation.
+
+inputType: {}
+outputType: {}

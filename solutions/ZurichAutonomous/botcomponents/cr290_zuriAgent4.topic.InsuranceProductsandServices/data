@@ -1,0 +1,96 @@
+kind: AdaptiveDialog
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: varCountrySel
+    description: |-
+      This topic handles user questions about Zurich Insurance products and services. Ensure to confirm whether the user is asking about insurance products in the UK or in the USA. For all UK related questions use knowledge from https://www.zurich.co.uk/ but for all USA related questions use knowledge from https://www.zurichna.com/
+
+      Examples:
+      Question: What insurance products does Zurich offer in the UK?
+      Answer: At Zurich, we’re proud to have been providing UK insurance for over 100 years. Whatever you’re looking to support or protect, we’ll do our best to help you.
+
+      User:What is the mechanical claims insurance coverage amount?
+      Agent Question: Do you want a summary for the UK or USA?
+      User: USA summary
+    entity: CountryOrRegionPrebuiltEntity
+    shouldPromptUser: true
+    inputSettings:
+      prompt:
+        activity: Do you want country specific information for the UK or the USA?
+        mode: Strict
+
+modelDescription: |-
+  This topic handles queries about insurance products offered by Zurich Insurance. A user might ask questions about insurance products and claims for a customer based in the UK or USA. Ensure to ask the user which location they are inquring about. 
+  For all UK Zurich insurance products find answers from https://www.zurich.co.uk/
+  For all USA Zurich insurance products find answers from https://www.zurichna.com/
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: Question
+      id: question_4P3TA6
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: Topic.varCountrySel
+      prompt: Choose your preferred country information below...
+      entity: StringPrebuiltEntity
+
+    - kind: ConditionGroup
+      id: conditionGroup_aSjTaO
+      conditions:
+        - id: conditionItem_7XZOG9
+          condition: =Topic.varCountrySel = "UK"
+          actions:
+            - kind: SearchAndSummarizeContent
+              id: v2CwdS
+              variable: Global.VarUKProd
+              userInput: =System.Activity.Text
+              fileSearchDataSource:
+                searchFilesMode:
+                  kind: DoNotSearchFiles
+
+              knowledgeSources:
+                kind: SearchSpecificKnowledgeSources
+                knowledgeSources:
+                  - cr290_zuriAgent4.knowledge.PublicSiteSearchSource.1
+
+        - id: conditionItem_54wVB5
+          condition: =Topic.varCountrySel = "USA"
+          actions:
+            - kind: SearchAndSummarizeContent
+              id: 4VaXsL
+              variable: Global.VarUSAProd
+              userInput: =System.Activity.Text
+              fileSearchDataSource:
+                searchFilesMode:
+                  kind: DoNotSearchFiles
+
+              knowledgeSources:
+                kind: SearchSpecificKnowledgeSources
+                knowledgeSources:
+                  - cr290_zuriAgent4.knowledge.PublicSiteSearchSource.0
+
+      elseActions:
+        - kind: SendActivity
+          id: sendActivity_PZlczG
+          activity: We cannot respond to that, please reach out to communications@contoso.com
+
+inputType:
+  properties:
+    varCountrySel:
+      displayName: varCountrySel
+      description: |-
+        This topic handles user questions about Zurich Insurance products and services. Ensure to confirm whether the user is asking about insurance products in the UK or in the USA. For all UK related questions use knowledge from https://www.zurich.co.uk/ but for all USA related questions use knowledge from https://www.zurichna.com/
+
+        Examples:
+        Question: What insurance products does Zurich offer in the UK?
+        Answer: At Zurich, we’re proud to have been providing UK insurance for over 100 years. Whatever you’re looking to support or protect, we’ll do our best to help you.
+
+        User:What is the mechanical claims insurance coverage amount?
+        Agent Question: Do you want a summary for the UK or USA?
+        User: USA summary
+      type: String
+
+outputType: {}

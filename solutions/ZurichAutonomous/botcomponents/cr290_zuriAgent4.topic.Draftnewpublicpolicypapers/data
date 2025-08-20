@@ -1,0 +1,137 @@
+kind: AdaptiveDialog
+modelDescription: This topic creates a draft policy that can be submitted for internal review. The trigger phrase for this topic is Draft a policy paper.
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: Question
+      id: question_GpcLFH
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.varChooseToDraft
+      prompt: Do you want to draft a Zurich Public Position Policy Paper?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: Yes, proceed to draft
+              displayName: Yes, proceed to draft
+
+            - id: No, looking for information
+              displayName: No, looking for information
+
+    - kind: ConditionGroup
+      id: conditionGroup_di3yPj
+      conditions:
+        - id: conditionItem_AcUh2S
+          condition: =Topic.varChooseToDraft = 'cr290_zuriAgent4.topic.Draftnewpublicpolicypapers.main.question_GpcLFH'.'Yes, proceed to draft'
+          actions:
+            - kind: AdaptiveCardPrompt
+              id: Z1uY5N
+              card: |-
+                {
+                  "type": "AdaptiveCard",
+                  "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+                  "version": "1.5",
+                  "body": [
+                    {
+                      "type": "TextBlock",
+                      "wrap": true,
+                      "text": "Zurich Public Policy Draft",
+                      "horizontalAlignment": "Center",
+                      "style": "heading"
+                    },
+                    {
+                      "type": "Container",
+                      "items": [
+                        {
+                          "type": "Input.Text",
+                          "label": "Title of the paper",
+                          "id": "draftPaperTitle",
+                          "placeholder": "e.g. Climate Disclosures",
+                          "isRequired": true,
+                          "errorMessage": "Title is missing"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Input.Text",
+                      "label": "Context of the paper",
+                      "placeholder": "Provide a short summary...",
+                      "id": "draftPaperContext",
+                      "isRequired": true,
+                      "errorMessage": "Context is missing"
+                    },
+                    {
+                      "type": "Input.Text",
+                      "placeholder": "Provide a detailed list of the public policy...",
+                      "label": "Public Position of the paper",
+                      "id": "draftPaperPosition",
+                      "isRequired": true,
+                      "errorMessage": "Position is missing"
+                    },
+                    {
+                      "type": "ActionSet",
+                      "actions": [
+                        {
+                          "type": "Action.Submit",
+                          "title": "Submit",
+                          "id": "draftPaperSubmit",
+                          "style": "positive"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              output:
+                binding:
+                  actionSubmitId: Topic.actionSubmitId
+                  draftPaperContext: Topic.draftPaperContext
+                  draftPaperPosition: Topic.draftPaperPosition
+                  draftPaperTitle: Topic.draftPaperTitle
+
+              outputType:
+                properties:
+                  actionSubmitId: String
+                  draftPaperContext: String
+                  draftPaperPosition: String
+                  draftPaperTitle: String
+
+            - kind: InvokeAIBuilderModelAction
+              id: invokeAIBuilderModelAction_A6vgDU
+              input:
+                binding:
+                  DraftofContext: =Topic.draftPaperContext
+                  DraftofPosition: =Topic.draftPaperPosition
+                  Sample_20Policy_20Paper: https://m365cpi22829036.sharepoint.com/sites/ZIGCommunications/ZIG%20Communications/Forms/AllItems.aspx?id=%2Fsites%2FZIGCommunications%2FZIG%20Communications%2FGroup%2Dposition%2Don%2Dclimate%2Dadaptation%2Epdf&parent=%2Fsites%2FZIGCommunications%2FZIG%20Communications
+
+              output:
+                binding:
+                  predictionOutput: Topic.varGPTPolicy
+
+              aIModelId: 22db8ad0-68a7-453b-84f5-ab0de04a8bb8
+
+            - kind: InvokeFlowAction
+              id: invokeFlowAction_u0pmxZ
+              input:
+                binding:
+                  text: =Topic.draftPaperTitle
+                  text_1: =Topic.draftPaperContext
+                  text_2: =Topic.draftPaperPosition
+                  text_3: =Topic.varGPTPolicy.text
+
+              output:
+                binding:
+                  flowoutput: Topic.flowOutput
+
+              flowId: dd08ae7a-075b-f011-bec1-000d3a597eca
+
+            - kind: SendActivity
+              id: sendActivity_9P0cyl
+              activity: "{Topic.flowOutput}"
+
+inputType: {}
+outputType: {}

@@ -1,0 +1,5 @@
+<botcomponent_connectionreferenceset>
+  <botcomponent_connectionreference botcomponentid.schemaname="cr290_zuriAgent4.action.SharePoint-Createitem" connectionreferenceid.connectionreferencelogicalname="cr290_zuriAgent4.shared_sharepointonline.shared-sharepointonl-ebe3ea49-ebe7-40f1-a9e8-f943fed50e07">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+</botcomponent_connectionreferenceset>

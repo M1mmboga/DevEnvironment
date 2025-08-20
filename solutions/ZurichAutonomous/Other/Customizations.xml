@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25072.226" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25072.00226">
+  <Entities />
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <AIModels>
+    <AIModel>
+      <msdyn_aimodelid>{22db8ad0-68a7-453b-84f5-ab0de04a8bb8}</msdyn_aimodelid>
+      <msdyn_name>Rewrite policies with GPT4</msdyn_name>
+      <msdyn_templateid>{edfdb190-3791-45d8-9a6c-8f90a37c278a}</msdyn_templateid>
+      <statecode>1</statecode>
+      <statuscode>1</statuscode>
+      <IsCustomizable>1</IsCustomizable>
+      <msdyn_activerunconfigurationid>{de6ad259-63b8-4863-82cb-6e73ba5f1a4d}</msdyn_activerunconfigurationid>
+      <AIConfigurations>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{de6ad259-63b8-4863-82cb-6e73ba5f1a4d}</msdyn_aiconfigurationid>
+          <msdyn_customconfiguration>{"version":"GptDynamicPrompt-2","prompt":[{"type":"literal","text":"You are tasked with rewriting the context"},{"type":"inputVariable","id":"DraftofContext"},{"type":"literal","text":"and position"},{"type":"inputVariable","id":"DraftofPosition"},{"type":"literal","text":"statements provided by the user to adhere to the Zurich Public Policy Documents standard. Ensure that the rewritten content is clear, concise, and aligns with the specified guidelines.\n\n### Instructions:\n1. **Review the Source Content:** Carefully read the context and position statements provided by the user.\n2. **Understand the Zurich Standard:** Familiarize yourself with the key elements and structure required by the Zurich Public Policy Documents standard.\n3. **Rewrite for Clarity and Compliance:** Transform the original statements to meet the Zurich standard while maintaining the original intent and meaning.\n4. **Ensure Consistency:** Check for consistency in tone, style, and terminology throughout the rewritten content.\n5. **Proofread:** Review the final output for grammatical accuracy and clarity.\n\n### Output Format:\nYour response should follow this structure:  "},{"type":"data","id":"cr290_zurichpolicypapers.cr290_zurichpolicypapersid","text":"ZurichPolicyPapers.ZurichPolicyPapers"},{"type":"literal","text":"     \n\n#Rewritten Context Statement:\n[Rewritten context statement based on the Zurich standard]\n\n#Rewritten Position Statement:\n[Rewritten position statement based on the Zurich standard]\n /\n### Guidelines:\n- Maintain the original meaning while enhancing clarity and compliance with the Zurich standard.\n- Avoid adding new information that is not present in the source content.\n- If any part of the source content is unclear or ambiguous, note what additional information is needed for a more accurate rewrite.\n"}],"definitions":{"inputs":[{"id":"DraftofContext","text":"DraftofContext","type":"text","quickTestValue":"We are encouraged by global efforts such as the Task Force on Climate-related Financial Disclosures (TCFD) and the International Sustainability Standards Board (ISSB), which are helping to harmonize reporting standards and drive accountability. These frameworks support SDG 13 by ensuring that financial flows are aligned with low-emission, climate-resilient development pathways."},{"id":"DraftofPosition","text":"DraftofPosition","type":"text","quickTestValue":"1. Climate Disclosure and Transparency\n-Adopt globally coordinated climate-related disclosures (e.g., TCFD, ISSB).\n-Ensure consistent reporting on climate risks and opportunities.\n\n2. Climate Adaptation and Resilience\n-Integrate adaptation strategies into national and local planning.\n-Prioritize resilience-building in vulnerable communities and ecosystems.\n\n3.Public-Private Collaboration\n-Foster partnerships with civil society, academia, and the private sector.\n-Co-develop climate mitigation and adaptation initiatives.\n\n4. Developing a single, global standard on sustainability reporting, despite the inherent political and technical difficulties, is the way to avoid counterproductive fragmentation around regulatory and supervisory expectations of climate-related risk. While ISSB has recently proposed the creation of a global financial reporting baseline built on TCFD, industry, policymakers and supervisors must create realistic pathways to adoption for all jurisdictions, encompassing US Generally Accepted Accounting Principles (GAAP) and other non-IFRS accounting regimes. "}],"formulas":[],"data":[{"id":"cr290_zurichpolicypapers","displayName":"ZurichPolicyPapers","type":"dataverseTable","filters":[]}],"output":{"formats":["text"]}},"modelParameters":{"modelType":"advanced","gptParameters":{"temperature":0}},"settings":{"recordRetrievalLimit":30,"shouldPreserveRecordLinks":null,"runtime":null},"code":""}</msdyn_customconfiguration>
+          <msdyn_majoriterationnumber>4</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_name>22db8ad0-68a7-453b-84f5-ab0de04a8bb8_7/14/2025 7:34:17 AM</msdyn_name>
+          <msdyn_modelrundataspecification>H4sIAAAAAAAACpWQOwvCQBCE/4psfY0gFul8go2KRvvVbPQguTtuN2AI+e/G+MQkoPXMfLszBWwdHefWpyh78qytgaCvYGFcJhtrZWZESw5BAVPNLsF8iSlBAKBgJOL1IRPiWvYYi40n1ghdpBn40hWsnFTXMIEgxoRJQZi7m3FbUc0JSvWMrC3rm7WT+TL8AsUoqs2YdL46alg+weKzN3eMTMPBk15W/FUm/07X/kV4P9woEGuj+bwh5LZJ5rXae8gt8QgFd0xRy5qV0qulzrrvouUVobPgLjoCAAA=</msdyn_modelrundataspecification>
+          <msdyn_type>190690001</msdyn_type>
+          <msdyn_aimodelid>{22db8ad0-68a7-453b-84f5-ab0de04a8bb8}</msdyn_aimodelid>
+          <msdyn_trainedmodelaiconfigurationpareid>{8e498120-0f5b-f011-bec1-000d3a597eca}</msdyn_trainedmodelaiconfigurationpareid>
+          <statecode>2</statecode>
+          <statuscode>7</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{8e498120-0f5b-f011-bec1-000d3a597eca}</msdyn_aiconfigurationid>
+          <msdyn_majoriterationnumber>1</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_modeldata>f6f45bf3-ae00-4f9e-ac57-85f4c9980b02</msdyn_modeldata>
+          <msdyn_name>Custom prompt 07/07/2025, 11:41:49 AM_7/7/2025 8:48:24 AM</msdyn_name>
+          <msdyn_modelrundataspecification>
+        {
+          "schemaVersion": 2,
+          "input": {},
+          "output": {}
+        }
+      </msdyn_modelrundataspecification>
+          <msdyn_type>190690000</msdyn_type>
+          <msdyn_aimodelid>{22db8ad0-68a7-453b-84f5-ab0de04a8bb8}</msdyn_aimodelid>
+          <statecode>2</statecode>
+          <statuscode>6</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+      </AIConfigurations>
+    </AIModel>
+  </AIModels>
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="ambers_sharedsharepointonline_eeaa1">
+      <connectionreferencedisplayname>SharePoint AMBERR-eeaa1</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="cr290_zuriAgent4.shared_sharepointonline.shared-sharepointonl-ebe3ea49-ebe7-40f1-a9e8-f943fed50e07">
+      <connectionreferencedisplayname>cr290_zuriAgent4.shared_sharepointonline.shared-sharepointonl-ebe3ea49-ebe7-40f1-a9e8-f943fed50e07</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
+      <iscustomizable>0</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="new_sharedazuread_0293a">
+      <connectionreferencedisplayname>Microsoft Entra ID</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_azuread</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="new_sharedoffice365_ea6c1">
+      <connectionreferencedisplayname>Office 365 Outlook</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="new_sharedoffice365users_c22fa">
+      <connectionreferencedisplayname>Office 365 Users</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365users</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="new_sharedonedriveforbusiness_24e53">
+      <connectionreferencedisplayname>OneDrive for Business</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="zigdev_sharedmicrosoftcopilotstudio_504a2">
+      <connectionreferencedisplayname>Microsoft Copilot Studio ZurichAutonomous-504a2</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="zigdev_sharedoffice365_030db">
+      <connectionreferencedisplayname>Office 365 Outlook ZurichAutonomous-030db</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

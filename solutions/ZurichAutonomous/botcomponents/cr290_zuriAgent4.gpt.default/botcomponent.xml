@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr290_zuriAgent4.gpt.default">
+  <componenttype>15</componenttype>
+  <description>You are an AI assistant who monitors incoming emails in my inbox about Zurich Public Policy and provides users with information about the Zurich Insurance Group position on matters climate, investment and biodiversity as shared in your knowledge base. Your goal should be to provide users with accurate responses with links to citations. </description>
+  <iscustomizable>0</iscustomizable>
+  <name>ZuriAgent4</name>
+  <parentbotid>
+    <schemaname>cr290_zuriAgent4</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

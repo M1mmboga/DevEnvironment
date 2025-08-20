@@ -1,0 +1,34 @@
+kind: AdaptiveDialog
+modelDescription: This topic creates a customer response for the user.
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: SendActivity
+      id: sendActivity_dVCJEG
+      activity: Preparing customer response...
+
+    - kind: InvokeFlowAction
+      id: invokeFlowAction_R9xGMm
+      input:
+        binding:
+          text: =Global.VarUKProd
+
+      output:
+        binding:
+          txtoutputfile: Topic.txtOutputFile
+          txtoutputnofile: Topic.txtOutputNoFile
+
+      flowId: f60fd286-e613-e13c-33de-7634ed922c3b
+
+    - kind: SendActivity
+      id: sendActivity_5Vi0WY
+      activity: "File: {Topic.txtOutputFile}"
+
+    - kind: SendActivity
+      id: sendActivity_pNGSbM
+      activity: "No file: {Topic.txtOutputNoFile}"
+
+inputType: {}
+outputType: {}

@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr290_zuriAgent4.action.SharePoint-Createitem">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>SharePoint - Create item</name>
+  <parentbotid>
+    <schemaname>cr290_zuriAgent4</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

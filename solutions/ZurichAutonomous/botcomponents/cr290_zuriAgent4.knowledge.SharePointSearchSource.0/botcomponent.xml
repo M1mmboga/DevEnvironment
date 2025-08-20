@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr290_zuriAgent4.knowledge.SharePointSearchSource.0">
+  <componenttype>16</componenttype>
+  <description>This knowledge source provides information found in ZIGCommunications SharePoint about Zurich Public Policy documents.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>ZIGCommunications</name>
+  <parentbotid>
+    <schemaname>cr290_zuriAgent4</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
