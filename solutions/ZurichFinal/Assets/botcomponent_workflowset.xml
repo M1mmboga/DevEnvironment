@@ -1,0 +1,8 @@
+<botcomponent_workflowset>
+  <botcomponent_workflow botcomponentid.schemaname="cr290_zuriAgent3.topic.Draftnewpublicpolicypapers" workflowid.workflowid="dd08ae7a-075b-f011-bec1-000d3a597eca">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+  <botcomponent_workflow botcomponentid.schemaname="cr290_zuriAgent3.topic.GenerateCustomerResponse" workflowid.workflowid="f60fd286-e613-e13c-33de-7634ed922c3b">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+</botcomponent_workflowset>

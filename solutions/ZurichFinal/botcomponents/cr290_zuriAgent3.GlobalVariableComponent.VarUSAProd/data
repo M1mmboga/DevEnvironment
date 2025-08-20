@@ -1,0 +1,15 @@
+kind: Variable
+name: VarUSAProd
+scope: Conversation
+initializationTimeoutInMilliseconds: 0
+aIVisibility: UseInAIContext
+canEdit: true
+dataType:
+  $kind: String
+  diagnostics:
+
+displayNameForDataType: string
+isUserScope: false
+propertyPath: Global.VarUSAProd
+variableName: VarUSAProd
+variableTypePrefix: Global

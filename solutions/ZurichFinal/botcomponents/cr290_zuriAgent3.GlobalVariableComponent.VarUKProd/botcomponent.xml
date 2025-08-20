@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr290_zuriAgent3.GlobalVariableComponent.VarUKProd">
+  <componenttype>12</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>VarUKProd</name>
+  <parentbotid>
+    <schemaname>cr290_zuriAgent3</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
