@@ -1,0 +1,22 @@
+# .github/workflows/on-pr-approval.yml
+name: On PR Approval
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  run-on-approval:
+    if: github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print PR info
+        run: |
+          echo "Pull request #${{ github.event.pull_request.number }} was approved."
+          echo "Title: ${{ github.event.pull_request.title }}"
+          echo "Branch: ${{ github.event.pull_request.head.ref }} → main"
+
+      # Add your custom steps here, e.g., notify, run tests, etc.
