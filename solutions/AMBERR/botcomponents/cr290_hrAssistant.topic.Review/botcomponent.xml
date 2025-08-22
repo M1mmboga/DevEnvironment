@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr290_hrAssistant.topic.Review">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Environment Reviews</name>
+  <parentbotid>
+    <schemaname>cr290_hrAssistant</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr290_hrAssistant.gpt.default">
+  <componenttype>15</componenttype>
+  <description>You help users get answers to top HR questions.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>HRAssist</name>
+  <parentbotid>
+    <schemaname>cr290_hrAssistant</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

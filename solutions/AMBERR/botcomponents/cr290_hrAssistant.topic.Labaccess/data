@@ -1,0 +1,34 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - I need to access the lab
+      - I want labs
+      - Access the labs
+
+  actions:
+    - kind: SendActivity
+      id: sendActivity_qWdDux
+      activity: Follow the instructions below to access labs.
+
+    - kind: SearchAndSummarizeContent
+      id: ZInjMe
+      autoSend: true
+      variable: Topic.LabAccessVar
+      userInput: =System.Activity.Text
+      applyModelKnowledgeSetting: false
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: SearchSpecificFiles
+          files:
+            - cr290_hrAssistant.component.Module0-Introduction.pptx__WI
+
+      knowledgeSources:
+        kind: SearchSpecificKnowledgeSources
+
+      responseCaptureType: FullResponse
+
+inputType: {}
+outputType: {}

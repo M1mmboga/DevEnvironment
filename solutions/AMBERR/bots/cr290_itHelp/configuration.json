@@ -1,0 +1,13 @@
+{
+  "$kind": "BotConfiguration",
+  "gPTSettings": {
+    "$kind": "GPTSettings",
+    "defaultSchemaName": "cr290_itHelp.gpt.default"
+  },
+  "aISettings": {
+    "$kind": "AISettings",
+    "useModelKnowledge": true,
+    "isSemanticSearchEnabled": true,
+    "optInUseLatestModels": false
+  }
+}

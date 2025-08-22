@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr290_itHelp.gpt.default">
+  <componenttype>15</componenttype>
+  <description>You help users with common IT questions.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>ITHelp</name>
+  <parentbotid>
+    <schemaname>cr290_itHelp</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
