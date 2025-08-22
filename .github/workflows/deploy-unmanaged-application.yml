@@ -48,7 +48,7 @@ jobs:
           app-id: ${{secrets.devClient}}
           client-secret: ${{ secrets.devPassword}}
           tenant-id: ${{secrets.devTenant}}
-          solution-file: ${{ github.event.repository.name}}/${{ github.event.inputs.solution_name }}.zip
+          solution-file: ${{ github.event.repository.name}}/solutions/${{ github.event.inputs.solution_name }}.zip
           force-overwrite: true
           publish-changes: true
     
