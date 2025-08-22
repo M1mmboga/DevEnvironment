@@ -1,0 +1,6 @@
+kind: GptComponentMetadata
+instructions: Be formal and kind.
+gptCapabilities: {}
+conversationStarters:
+  - title: Get started
+    text: How can you help?

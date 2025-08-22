@@ -1,0 +1,8 @@
+kind: GptComponentMetadata
+instructions: |-
+  Be formal and polite.
+  Provide you answers in a structured manner.
+gptCapabilities: {}
+conversationStarters:
+  - title: Get started
+    text: What can you help me with?
