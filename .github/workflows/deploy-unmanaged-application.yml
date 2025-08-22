@@ -15,14 +15,14 @@ on:
         description: "http endpoint of your Dataverse environment"
         required: true
         default: "https://orgaa051461.crm.dynamics.com"
-      #solution_source_folder:
-       # description: "Location of the solution files"
-        #requried: true
-        #default: .
-      #solution_outbound_folder:
-       # description: "solution outbound folder"
-        #required: true
-        #default: out/stage
+      solution_source_folder:
+        description: "Location of the solution files"
+        required: true
+        default: solutions/
+      solution_outbound_folder:
+        description: "solution outbound folder"
+        required: true
+        default: out/solutions/
 jobs:
     pack-umanaged-solution-import:
       runs-on: ubuntu-latest
